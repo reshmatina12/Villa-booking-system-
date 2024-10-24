@@ -18,6 +18,7 @@ A villa booking system built with HTML, CSS, JavaScript, Node.js, and MongoDB is
       It enables quick retrieval of villa listings based on user queries.
    
 4. Functionality:
+   
       User Registration/Login:
            Users can create accounts and log in securely.
       Villa Listings:
