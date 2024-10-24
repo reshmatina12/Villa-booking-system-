@@ -1,0 +1,487 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #282c34; /* Background color */
+    color: white; /* Default text color */
+}
+
+.app-header {
+    background-color: #007bff; /* Header background */
+    padding: 20px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-nav {
+    display: flex;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px; /* Left margin for nav links */
+}
+
+.orange-box {
+    background-color: #ff9800;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.filters-section {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #3498db; /* Background color for filters */
+    color: white; /* Text color for filters */
+}
+
+.filters-container {
+    display: flex;
+    align-items: center; /* Align filters vertically */
+}
+
+.filters-container h2 {
+    margin-right: 10px; /* Space between the header and the select element */
+}
+
+.filters-container select {
+    margin-right: 20px; /* Space between the select elements */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd; /* Border for select elements */
+    background-color: #fff; /* Background color for select elements */
+    color: #333; /* Text color for select elements */
+}
+
+/* Search Section */
+.search-container {
+    display: flex;
+}
+
+.search-bar {
+    position: relative;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: #ccc;
+}
+
+.villas-section {
+    padding: 20px;
+}
+
+.villa-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.villa-card {
+    background-color: #3a3f47; /* Background color for villa cards */
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    flex: 0 0 30%; /* Flexible width for cards */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+}
+
+.villa-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.villa-details {
+    margin-top: 10px;
+}
+
+.rating {
+    color: #ffc107; /* Star rating color */
+}
+
+.book-btn,
+.details-btn {
+    margin-top: 10px;
+    background-color: #28a745; /* Book button color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.details-btn {
+    background-color: #007bff; /* Details button color */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 600px; /* Limit width on larger screens */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s; /* Animation for opening */
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Headings */
+h2 {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 20px;
+    color: white;
+    margin-top: 15px;
+}
+
+/* Paragraphs */
+p {
+    color: white;
+    line-height: 1.6;
+}
+
+/* Lists */
+ul {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+ul li {
+    margin: 5px 0;
+    color: #444;
+    font-size: 16px;
+}
+
+/* Add any additional styles below */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+button[type="submit"] {
+    background-color: #007bff; /* Submit button color */
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Submit button hover color */
+}
+
+.app-footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .villa-card {
+        flex: 0 0 100%; /* Full width for small screens */
+    }
+    
+    .filters-section {
+        flex-direction: column;
+        align-items: flex-start; /* Align filters vertically */
+    }
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #66afe9;
+    outline: none;
+}
+
+.btn {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #4cae4c;
+}
+
+
+.contact-details h3 {
+    margin: 15px 0 5px;
+    color: #333;
+}
+
+.contact-details p {
+    font-size: 1.1em;
+    margin: 5px 0;
+}
+
+.contact-details a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 10px;
+    font-size: 1.2em;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.social-links a i {
+    margin-right: 8px;
+}
+
+.social-links a:hover {
+    color: #0056b3;
+}
+
+/* Close button (X) styling */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5em;
+    color: #333;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #FF0000; /* Changes color when hovered over */
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 10px;
+}
+
+.social-icon {
+    width: 30px; /* Adjust the size of the icons as needed */
+    height: 30px;
+    transition: transform 0.3s; /* Smooth scaling on hover */
+}
+
+.social-links a:hover .social-icon {
+    transform: scale(1.1); /* Scale effect on hover */
+}
+
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 400px;
+    margin: 10% auto; /* Centered on the page */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.footer-links {
+    margin: 10px 0;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villa Booking App</title>
+    <link rel="stylesheet" href="villa.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header class="app-header">
+        <div class="header-container">
+            <h1 style="color: aliceblue;" id="mainhead">Villa Booking</h1>
+
+            <!-- Navigation -->
+            <div class="header-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="#" class="nav-link" onclick="openAboutModal()">About</a>
+                <a href="#" class="nav-link" onclick="openContactModal()">Contact</a>
+                <button onclick="openSignInModal()" class="nav-link orange-box">Sign In</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Filters Section -->
+    <section class="filters-section">
+        <div class="filters-container">
+            <h2>Villa type:</h2>
+            <select id="villa-type-filter" onchange="filterVillas()">
+                <option value="all">All</option>
+                <option value="beach">Beach</option>
+                <option value="mountain">Mountain</option>
+                <option value="island">Island</option>
+                <option value="desert">Desert</option>
+            </select>
+
+            <h2>Price range:</h2>
+            <select id="price-range-filter" onchange="filterVillas()">
+                <option value="all">All</option>
+                <option value="low">$0 - $300</option>
+                <option value="mid">$301 - $600</option>
+                <option value="high">$601+</option>
+            </select>
+        </div>
+
+        <div class="search-container">
+            <div class="search-bar">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search" placeholder="Search Villas..." aria-label="Search Villas" oninput="filterVillas()">
+            </div>
+        </div>
+    </section>
+
+    <!-- Available Villas Section -->
+    <section class="villas-section" id="villas">
+        <h2 style="color: white;">Villas</h2>
+        <br><br>
+        <div id="no-results-message" style="display: none; text-align: center; color: red;">No villas found matching your search.</div>
+
+        <!-- Beach Villas Section -->
+        <h3>Beach Villas</h3>
+        <div class="villa-list">
+            <div class="villa-card" data-type="beach">
+                <img src="images.jpg" alt="Oceanfront Paradise">
+                <div class="villa-details">
+                    <h3>Oceanfront Paradise</h3>
+                    <p>$300 / night</p>
+                    <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span> (3.0)
+                    </div>
+                    <p>Private beach access and infinity pool.</p>
+                    <button class="book-btn" onclick="openBookingModal('Oceanfront Paradise')">Book Now</button>
+                    <button class="details-btn" onclick="showVillaDetails('Oceanfront Paradise', '$300 / night', 'Private beach access and infinity pool.')">Details</button>
+                </div>
+            </div>
+
+            <div class="villa-card" data-type="beach">
+                <img src="images2.jpg" alt="Sunny Shores Villa">
+                <div class="villa-details">
+                    <h3>Sunny Shores Villa</h3>
+                    <p>$350 / night</p>
+                    <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span> (4.0)
+                    </div>
+                    <p>Spacious villa with direct beach access.</p>
+                    <button class="book-btn" onclick="openBookingModal('Sunny Shores Villa')">Book Now</button>
+                    <button class="details-btn" onclick="showVillaDetails('Sunny Shores Villa', '$350 / night', 'Spacious villa with direct beach access.')">Details</button>
+                </div>
+            </div>
+
+            <div class="villa-card" data-type="beach">
+                <img src="images3.jpg" alt="Tropical Breeze Villa">
+                <div class="villa-details">
+                    <h3>Tropical Breeze Villa</h3>
+                    <p>$320 / night</p>
+                    <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span> (3.5)
+                    </div>
+                    <p>Modern villa with beautiful ocean views.</p>
+                    <button class="book-btn" onclick="openBookingModal('Tropical Breeze Villa')">Book Now</button>
+                    <button class="details-btn" onclick="showVillaDetails('Tropical Breeze Villa', '$320 / night', 'Modern villa with beautiful ocean views.')">Details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mountain Villas Section -->
+        <h3>Mountain Villas</h3>
+        <div class="villa-list">
+            <div class="villa-card" data-type="mountain">
+                <img src="images4.jpg" alt="Alpine Retreat">
+                <div class="villa-details">
+                    <h3>Alpine Retreat</h3>
+                    <p>$400 / night</p>
+                    <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span> (4.0)
+                    </div>
+                    <p>Panoramic mountain views, cozy fireplace.</p>
+                    <button class="book-btn" onclick="openBookingModal('Alpine Retreat')">Book Now</button>
+                    <button class="details-btn" onclick="showVillaDetails('Alpine Retreat', '$400 / night', 'Panoramic mountain views, cozy fireplace.')">Details</button>
+                </div>
+            </div>
+
+            <div class="villa-card" data-type="mountain">
+                <img src="images5.jpg" alt="Serenity Cabin">
+                <div class="villa-details">
+                    <h3>Serenity Cabin</h3>
+                    <p>$420 / night</p>
+                    <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa-star"></span> (4.5)
+                    </div>
+                    <p>Quiet cabin nestled in the mountains.</p>
+                    <button class="book-btn" onclick="openBookingModal('Serenity Cabin')">Book Now</button>
+                    <button class="details-btn" onclick="showVillaDetails('Serenity Cabin', '$420 / night', 'Quiet cabin nestled in the mountains.')">Details</button>
+                </div>
+            </div>
+
+            <div class="villa-card" data-type="mountain">
+                <img src="images6.jpg" alt="Majestic Peaks Lodge">
+                <div class="villa-details">
+                    <h3>Majestic Peaks Lodge</h3>
+                    <p>$450 / night</p>
+                    <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa-star checked"></span>
+                        <span class="fa-star"></span>
+                        <span class="fa-star"></span> (4.8)
+                    </div>
+                    <p>Luxurious lodge with stunning views.</p>
+                    <button class="book-btn" onclick="openBookingModal('Majestic Peaks Lodge')">Book Now</button>
+                    <button class="details-btn" onclick="showVillaDetails('Majestic Peaks Lodge', '$450 / night', 'Luxurious lodge with stunning views.')">Details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Island Villas Section -->
+        <h3>Island Villas</h3>
+        <div class="villa-list">
+            <div class="villa-card" data-type="island">
+                <img src="images7.jpg" alt="Island Oasis">
+                <div class="villa-details">
+                    <h3>Island Oasis</h3>
+                    <p>$500 / night</p>
+                    <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa-star checked"></span>
+                        <span class="fa-star"></span>
+                        <span class="fa-star"></span> (5.0)
+                    </div>
+                    <p>Exclusive island retreat with luxury amenities.</p>
+                    <button class="book-btn" onclick="openBookingModal('Island Oasis')">Book Now</button>
+                    <button class="details-btn" onclick="showVillaDetails('Island Oasis', '$500 / night', 'Exclusive island retreat with luxury amenities.')">Details</button>
+                </div>
+            </div>
+
+            <div class="villa-card" data-type="island">
+                <img src="images8.jpg" alt="Paradise Bay Villa">
+                <div class="villa-details">
+                    <h3>Paradise Bay Villa</h3>
+                    <p>$600 / night</p>
+                    <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa-star"></span> (4.9)
+                    </div>
+                    <p>Modern villa with private beach and spa.</p>
+                    <button class="book-btn" onclick="openBookingModal('Paradise Bay Villa')">Book Now</button>
+                    <button class="details-btn" onclick="showVillaDetails('Paradise Bay Villa', '$600 / night', 'Modern villa with private beach and spa.')">Details</button>
+                </div>
+            </div>
+
+            <div class="villa-card" data-type="island">
+                <img src="images9.jpg" alt="Seaside Retreat">
+                <div class="villa-details">
+                    <h3>Seaside Retreat</h3>
+                    <p>$550 / night</p>
+                    <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa-star"></span>
+                        <span class="fa-star"></span> (4.7)
+                    </div>
+                    <p>Luxury villa with stunning ocean views.</p>
+                    <button class="book-btn" onclick="openBookingModal('Seaside Retreat')">Book Now</button>
+                    <button class="details-btn" onclick="showVillaDetails('Seaside Retreat', '$550 / night', 'Luxury villa with stunning ocean views.')">Details</button>
+                </div>
+            </div>
+        </div>
+        <h3>Desert Villas</h3>
+        <div class="villa-list">
+            <div class="villa-card" data-type="island">
+                <img src="images3.jpg" alt="Tropical Island Villa">
+                <div class="villa-details">
+                    <h3> Desert tropical Villa</h3>
+                    <p>$550 / night</p>
+                    <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span> (4.3)
+                    </div>
+                    <p>Beautiful island villa with private beach.</p>
+                    <button class="book-btn" onclick="openBookingModal('Tropical Island Villa')">Book Now</button>
+                    <button class="details-btn" onclick="showVillaDetails('Tropical Island Villa', '$550 / night', 'Beautiful island villa with private beach.')">Details</button>
+                </div>
+            </div>
+            <div class="villa-card" data-type="island">
+                <img src="images6.jpg" alt="Island Escape">
+                <div class="villa-details">
+                    <h3> Escape</h3>
+                    <p>$900 / night</p>
+                    <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span> (4.7)
+                    </div>
+                    <p>Exquisite villa surrounded by crystal clear waters.</p>
+                    <button class="book-btn" onclick="openBookingModal('Island Escape')">Book Now</button>
+                    <button class="details-btn" onclick="showVillaDetails('Island Escape', '$600 / night', 'Exquisite villa surrounded by crystal clear waters.')">Details</button>
+                </div>
+            </div>   
+            <div class="villa-card" data-type="island">
+                <img src="images9.jpg" alt="Coastal Bliss Villa">
+                <div class="villa-details">
+                    <h3> Bliss Villa</h3>
+                    <p>$580 / night</p>
+                    <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span> (4.6)
+                    </div>
+                    <p>Stunning coastal views and luxury amenities.</p>
+                    <button class="book-btn" onclick="openBookingModal('Coastal Bliss Villa')">Book Now</button>
+                    <button class="details-btn" onclick="showVillaDetails('Coastal Bliss Villa', '$580 / night', 'Stunning coastal views and luxury amenities.')">Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="app-footer">
+        <p>&copy; 2024 Villa Booking App. All rights reserved.</p>
+    </footer>
+
+<!-- About Modal -->
+<div id="about-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeAboutModal()">&times;</span>
+        <h2>About Villa Booking</h2>
+        
+        <p>Welcome to Villa Booking!</p>
+        <p>Your premier online destination for:</p>
+        
+        <ul>
+            <li><strong>Exquisite Villas:</strong> Discover a diverse selection of luxurious accommodations.</li>
+            <li><strong>Stunning Locations:</strong> Enjoy breathtaking views and unique cultural experiences.</li>
+            <li><strong>Seamless Booking:</strong> Easily browse, filter, and reserve your ideal getaway.</li>
+        </ul>
+
+        <h3>Why Choose Us?</h3>
+        <p>We’re dedicated to making your vacation unforgettable:</p>
+        
+        <ul>
+            <li><strong>Curated Selection:</strong> Each villa is handpicked for quality and charm.</li>
+            <li><strong>Eco-Friendly Options:</strong> Many properties embrace sustainable practices.</li>
+            <li><strong>Customer Support:</strong> Our team is here to assist you every step of the way.</li>
+        </ul>
+
+        <h3>Your Journey Awaits</h3>
+        <p>Start your extraordinary adventure today and find the perfect villa for your next getaway!</p>
+    </div>
+</div>
+
+
+
+
+    <center>
+        <!-- Contact Modal -->
+<div id="contact-modal" class="modal">
+    <div class="modal-content">
+        <!-- Close button (X) -->
+        <span class="close" onclick="closeContactModal()">&times;</span>
+        
+        <h2>Contact Us</h2>
+        <div class="contact-details">
+            <h3>Phone:</h3>
+            <p><a href="tel:+91 6369542578">+91 6369542578</a></p>
+
+            <h3>Email:</h3>
+            <p><a href="mailto:villasupport@example.com">villasupport@example.com</a></p>
+
+            <h3>Follow Us:</h3>
+            <div class="social-links">
+                <a href="https://www.instagram.com/yourprofile" target="_blank">
+                    <img src="C:\Users\Aswinkumar\OneDrive\Desktop\project\Instagram.webp" alt="Instagram" class="social-icon">
+                </a>
+                <a href="https://github.com/yourprofile" target="_blank">
+                    <img src="C:\Users\Aswinkumar\OneDrive\Desktop\project\github.webp" alt="GitHub" class="social-icon">
+                </a>
+                <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
+                    <img src="C:\Users\Aswinkumar\OneDrive\Desktop\project\linkedin.webp" alt="LinkedIn" class="social-icon">
+                </a>
+                <a href="https://twitter.com/yourprofile" target="_blank">
+                    <img src="C:\Users\Aswinkumar\OneDrive\Desktop\project\twitter.webp" alt="Twitter" class="social-icon">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </center>
+    
+
+    <div id="sign-in-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSignInModal()">&times;</span>
+            <h2>Sign In</h2>
+            <form id="sign-in-form">
+                <div class="form-group">
+                    <label for="username">Username or Email</label>
+                    <input type="text" id="username" name="username" required placeholder="Enter your username or email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Sign In</button>
+                </div>
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="#"><center>Sign Up</center></a></p>
+                    <p><a href="#"><center>Forgot Password?</center></a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    
+    
+
+   <!-- Booking Modal -->
+<div id="booking-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeBookingModal()">&times;</span>
+        <h2 id="booking-title"></h2>
+        <p>Price: <span id="booking-price"></span></p>
+        <p>Description: <span id="booking-description"></span></p>
+        
+        <!-- Booking Form -->
+        <form id="booking-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" required placeholder="Enter your age">
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Select your gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="checkin">Check-in Date</label>
+                <input type="date" id="checkin" name="checkin" required>
+            </div>
+            <div class="form-group">
+                <label for="checkout">Check-out Date</label>
+                <input type="date" id="checkout" name="checkout" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email ID</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn">Confirm Booking</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+    <script src="villa.js"></script>
+</body>
+
+</html>
